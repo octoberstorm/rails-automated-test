@@ -11,7 +11,7 @@
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
-    <%#= #favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+    <%#@= favicon_link_tag 'icons/apple-touch-icon-precomposed-icon-144x144.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
 
     <!-- For iPhone with high-resolution Retina display: -->
     <!-- Size should be 114 x 114 pixels -->
@@ -27,7 +27,7 @@
 
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
-    <%#= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
     <%= javascript_include_tag "application" %>
 
@@ -45,15 +45,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">RailsAutomatedTest</a>
+        <a class="navbar-brand" href="/">RailsAutomatedTest Blog</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
             <% if user_signed_in? %>
               <li><%= link_to current_user.email, edit_user_registration_path %> </li>
               <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %> </li>
+              <li><%= link_to "Edit account", edit_user_registration_path %></li>
             <% else %>
               <li><%= link_to "Sign in", new_user_session_path %></li>
             <% end %>
@@ -70,12 +68,12 @@
         </div>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
+            <h3>Popular posts</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li class="nav-header">This week</li>
+              <% Post.popular_items.each do |post| %>
+                <li><%= link_to post.title, post_path(post) %></li>
+              <% end %>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

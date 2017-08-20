@@ -1,14 +1,8 @@
-<%- model_class = Post -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
+<h1><%= @post.title %></h1>
+<p><i>Posted at <%= @post.created_at %></i> by <b><%= @post.user.name %></b></p>
+<hr>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
-  <dd><%= @post.title %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:body) %>:</strong></dt>
-  <dd><%= @post.body %></dd>
-</dl>
+<div><%= simple_format @post.body %></div>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               posts_path, :class => 'btn btn-default'  %>

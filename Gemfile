@@ -39,10 +39,14 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
+  gem 'factory_girl_rails'
+	gem 'pry-rails'
 end
 
 group :test do
-  gem 'cucumber-rails', :require => false	
+  gem 'cucumber-rails', :require => false
+	gem 'selenium-cucumber'
   gem 'database_cleaner'
 end
 
@@ -63,3 +67,8 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 
 gem 'devise'
+
+gem 'sprockets', '3.6.3'
+gem 'jquery-rails'
+gem 'jquery-popover'
+gem 'jquery-ui-rails'
