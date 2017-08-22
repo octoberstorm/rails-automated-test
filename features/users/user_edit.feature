@@ -1,4 +1,4 @@
-@logged_in_user
+@logged_in
 Feature: Edit User
   As a registered user of the website
   I want to edit my user profile

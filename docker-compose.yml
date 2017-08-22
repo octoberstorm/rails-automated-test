@@ -1,0 +1,28 @@
+#cucumber-phantomjs:
+#  build: .
+#  command: bundle exec cucumber -p poltergeist -f pretty
+#  volumes:
+#    - .:/myapp
+#  ports:
+#    - "4777:4777"
+#
+cucumber-sign-up:
+  # build: .
+  image: railsautomatedtest_cucumber-firefox
+  environment:
+    - RAILS_ENV=test
+    - DB_ID=non_logged_in
+    - TAGS=@non_logged_in
+  command: bash -c "bin/cucumber-runner"
+  volumes:
+    - .:/myapp
+cucumber-edit-user:
+  image: railsautomatedtest_cucumber-firefox
+  environment:
+    - RAILS_ENV=test
+    - DB_ID=logged_in
+    - TAGS=@logged_in
+  command: bash -c "bin/cucumber-runner"
+  volumes:
+    - .:/myapp
+

@@ -1,3 +1,4 @@
+@non_logged_in
 Feature: Sign in
   In order to get access to protected sections of the site
   A user
