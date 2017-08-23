@@ -232,3 +232,16 @@ Then /^I should see my name$/ do
   create_user
   page.has_content? @user[:name]
 end
+
+# PENDING EXAMPLES
+When(/^I go to edit password page$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When(/^I click cancel button$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^I should be redirected to home page$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end

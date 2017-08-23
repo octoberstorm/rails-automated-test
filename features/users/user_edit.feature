@@ -48,3 +48,8 @@ Feature: Edit User
       When I edit my password with missmatched confirmation
       And I save the edit form
       Then I should see a mismatched password message
+    Scenario: I sign in and go to edit password then click cancel
+      Given I am logged in
+      When I go to edit password page
+      And I click cancel button
+      Then I should be redirected to home page
